@@ -130,7 +130,7 @@ canvas {
   transform: translate(-50%, -50%);
   font-size: 2em;
   font-weight: bold;
-  color: color1;
+  color: #fff;
   pointer-events: none;
   text-shadow: 1px 1px 5px rgba(0,0,0,0.8);
   z-index: 3;
