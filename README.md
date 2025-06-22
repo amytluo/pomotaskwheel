@@ -1,5 +1,7 @@
 # pomotaskwheel
-A task randomizer with timer inspired by the Pomodoro technique for productivity.
+A web-based task randomizer with timer inspired by the Pomodoro technique for productivity.
+
+https://amytluo.github.io/pomotaskwheel/
 
 ![Pomoimage1](https://github.com/user-attachments/assets/a1496112-e6de-4ee1-a323-dbd6a3a7ff28)
 
