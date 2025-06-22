@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>PomoTaskWheel</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>Pomodoro Task Randomizer</h1>
+  <!-- Settings Icon & Menu -->
+  <div id="settingsIcon">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none"
+         stroke="currentColor" stroke-width="2" stroke-linecap="round"
+         stroke-linejoin="round">
+      <circle cx="12" cy="12" r="3"></circle>
+      <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 
+              1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09a1.65 
+              1.65 0 0 0-1-1.51 1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 
+              1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09a1.65 
+              1.65 0 0 0 1.51-1 1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 
+              1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 
+              1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 
+              2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 
+              1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/>
+    </svg>
+  </div>
+  <div id="settingsMenu">
+    <label for="sessionLength">Session Length (mins): </label>
+    <input type="number" id="sessionLength" min="1" value="25" style="width: 60px;">
+    <br>
+    <label for="breakLength">Break Length (mins): </label>
+    <input type="number" id="breakLength" min="1" value="5" style="width: 60px;">
+    <br>
+    <button id="saveSettings" style="margin-top: 10px; padding: 5px 10px;">Save</button>
+  </div>
+  
+  <div id="mainContainer">
+    <!-- Editable Task List -->
+    <div id="taskListContainer">
+      <h2>Task List</h2>
+      <div class="input-container">
+            <input type="text" placeholder="Add Task" id="inputText">
+            <button id="addTaskButton">Add</button>
+        </div>
+      <div id="taskList"></div>
+    </div>
+    <!-- Wheel and Controls -->
+    <div>
+      <div id="wheelContainer">
+        <canvas id="wheelCanvas" width="400" height="400"></canvas>
+        <!-- Circular overlay with SVG progress display -->
+        <div id="timerBackground">
+          <svg id="progressSvg" viewBox="0 0 400 400">
+            <!-- Background circle -->
+            <circle cx="200" cy="200" r="190" stroke="#444" stroke-width="10" fill="none"/>
+            <!-- Progress circle; starts full and then decreases -->
+            <circle id="progressCircle" cx="200" cy="200" r="190" stroke="#00ff00" stroke-width="10" fill="none"
+                    stroke-linecap="round" transform="rotate(-90 200 200)"/>
+          </svg>
+        </div>
+        <!-- Timer text overlay -->
+        <div id="timerOverlay"></div>
+      </div>
+      <br>
+      <button id="spinButton">Spin the Wheel</button>
+      <button id="breakButton">Take a Break</button>
+      <p id="selectedTask"></p>
+      <!-- Timer control buttons (ordered: Pause, Reset, Cancel) -->
+      <button id="pauseButton">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+             stroke-linecap="round" stroke-linejoin="round">
+          <rect x="6" y="4" width="4" height="16"></rect>
+          <rect x="14" y="4" width="4" height="16"></rect>
+        </svg>
+      </button>
+      <button id="resetButton">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+             stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="23 4 23 10 17 10"></polyline>
+          <polyline points="1 20 1 14 7 14"></polyline>
+          <path d="M3.51 9a9 9 0 0 1 14.36-3.36L23 10"></path>
+          <path d="M20.49 15a9 9 0 0 1-14.36 3.36L1 14"></path>
+        </svg>
+      </button>
+      <button id="cancelButton">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+             stroke-linecap="round" stroke-linejoin="round">
+          <line x1="18" y1="6" x2="6" y2="18"></line>
+          <line x1="6" y1="6" x2="18" y2="18"></line>
+        </svg>
+      </button>
+    </div>
+  </div>
+  
+  <script src="script.js"></script>
+</body>
+</html>
